@@ -1,0 +1,6 @@
+{
+  "name": "ember-contextual-table",
+  "tagline": "Ember Data Table as a Contextual Component",
+  "body": "This demo page shows capabilities of ember-contextual-table. \r\n\r\n### Authors and Contributors\r\n@ykaragol\r\n@feanor07\r\n\r\n### Documentation\r\nCheck [wiki](https://github.com/karanar/ember-contextual-table/wiki) pages of [ember-contextual-table](https://github.com/karanar/ember-contextual-table) for usage.\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
