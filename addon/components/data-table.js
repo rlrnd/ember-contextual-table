@@ -16,17 +16,14 @@ export default Ember.Component.extend({
   selectionChanged:Ember.K,
   classNames:['contextual-data-table'],
 
-  selectedRows:Ember.computed('data.[]',{
-    get(){
-      return Ember.A();
-    },
-    set(key, value){
-      let arr = Ember.A();
-      if(Ember.isArray(value)){
-        arr.pushObjects(value);
-      }
-      return arr;
-    }
+  selectedRows: Ember.A([]),
+
+  dataChanged: Ember.observer('data.[]', function(){
+    this.set('selectedRows', Ember.A([]));
+  }),
+
+  allRows: Ember.computed('data.[]', 'selectedRows.[]', function(){
+    return this.get('data');
   }),
 
   actions:{
@@ -45,12 +42,11 @@ export default Ember.Component.extend({
       if(this.get('selectionMode')==='single'){
         return false;
       }
-      this.get('selectedRows').clear();
-      this.get('selectedRows').pushObjects(this.get('data'));
+      this.set('selectedRows',this.get('data'));
       this.get('selectionChanged')(this.get('selectedRows'));
     },
     deselectAll:function(){
-      this.get('selectedRows').clear();
+      this.set('selectedRows', Ember.A([]));
       this.get('selectionChanged')(this.get('selectedRows'));
     }
   }
