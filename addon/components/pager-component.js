@@ -5,9 +5,6 @@ export default Ember.Component.extend({
   layout,
   classNames:['contextual-pager-component'],
 
-  previousDisabled: Ember.computed('currentPage',function(){
-    return (this.get('currentPage') <= 1) ;
-  }),
 
   previousButtonClass: Ember.computed('previousDisabled',function(){
     return (this.get('previousDisabled') ? 'disabled' : '') ;
