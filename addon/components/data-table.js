@@ -11,7 +11,11 @@ export default Ember.Component.extend({
   singleSelection:Ember.computed.equal('selectionMode','single'),
 
   notSelectedRows:Ember.computed.setDiff('data','selectedRows'),
-  isAllSelected:Ember.computed.empty('notSelectedRows'),
+  isAllSelected: Ember.computed('notSelectedRows',function(){
+    let ns = this.get('notSelectedRows');
+    let data = this.get('data');
+    return (data.length !== 0 ) && (ns.length === 0);
+  }),
 
   selectionChanged:Ember.K,
   classNames:['contextual-data-table'],
