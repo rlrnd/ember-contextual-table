@@ -22,10 +22,6 @@ export default Ember.Component.extend({
     this.set('selectedRows', Ember.A([]));
   }),
 
-  allRows: Ember.computed('data.[]', 'selectedRows.[]', function(){
-    return this.get('data');
-  }),
-
   actions:{
     selected:function(row){
       if(this.get('selectionMode')==='single'){
