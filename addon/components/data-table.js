@@ -20,6 +20,7 @@ export default Ember.Component.extend({
 
   dataChanged: Ember.observer('data.[]', function(){
     this.set('selectedRows', Ember.A([]));
+    this.get('selectionChanged')(this.get('selectedRows'));
   }),
 
   actions:{
